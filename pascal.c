@@ -17,6 +17,19 @@ void print_array(int *array, int no_of_elements)
     }
 }
 
+void generate_array(int *array_to_gen, int n_gen_ele, int *prev_array)
+{
+    // init 1st and last element to 1
+    array_to_gen[0] = 1;
+    array_to_gen[n_gen_ele - 1] = 1;
+
+    // generate from above
+    for (int i = 1; i <= n_gen_ele - 2; i++)
+    {
+        array_to_gen[i] = prev_array[i - 1] + prev_array[i];
+    }
+}
+
 int main(void)
 {
     int no_of_lines = 0;
@@ -35,7 +48,11 @@ int main(void)
 
             // business logic
             // init array for demo
-            init_array(odd_array, (i + 1));
+            if (odd_array == NULL)
+                init_array(odd_array, (i + 1));
+            // generate array from next runs
+            else
+                generate_array(odd_array, (i + 1), even_array);
 
             // print array
             print_array(odd_array, (i + 1));
@@ -46,8 +63,12 @@ int main(void)
             even_array = (int *)realloc(even_array, sizeof(int) * (i + 1));
 
             // business logic
-            // init array for demo
-            init_array(even_array, (i + 1));
+            // init array for 1st run
+            if (even_array == NULL)
+                init_array(even_array, (i + 1));
+            // generate array from next runs
+            else
+                generate_array(even_array, (i + 1), odd_array);
 
             // print array
             print_array(even_array, (i + 1));
