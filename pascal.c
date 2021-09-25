@@ -21,9 +21,7 @@ void generate_array(int *array_to_gen, int n_gen_ele, int *prev_array)
 
     // generate from above
     for (int i = 1; i <= n_gen_ele - 2; i++)
-    {
         array_to_gen[i] = prev_array[i - 1] + prev_array[i];
-    }
 }
 
 int main(void)
@@ -47,7 +45,7 @@ int main(void)
             odd_array = (int *)realloc(odd_array, sizeof(int) * (i + 1));
 
             // business logic
-            // init array for demo
+            // init array for 1st run
             if (odd_array == NULL)
                 init_array(odd_array, (i + 1));
             // generate array from next runs
@@ -76,10 +74,3 @@ int main(void)
         printf("\n");
     }
 }
-
-/*
-Program comments
-
-malloc is same as realloc(null, ..)
-
-*/

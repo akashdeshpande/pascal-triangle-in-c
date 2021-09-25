@@ -2,6 +2,7 @@
 This program reallocs ptr to ptr_new
 ptr_new has the previous elements of ptr
 newly added elements have garbage value
+malloc is same as realloc(null, ..)
 */
 #include <stdio.h>
 #include <stdlib.h>
