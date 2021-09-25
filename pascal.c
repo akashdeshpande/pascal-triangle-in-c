@@ -11,6 +11,14 @@ int main(void)
 
     for (int i = 0; i < no_of_lines; i++)
     {
+        if (i % 2 == 0) // even i, but odd row
+        {
+            printf("\nodd row\n");
+        }
+        else // odd i, but even row
+        {
+            printf("\neven row\n");
+        }
         for (int j = 0; j < i + 1; j++)
         {
             printf("%d", 1);
