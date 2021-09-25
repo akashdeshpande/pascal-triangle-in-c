@@ -4,17 +4,13 @@
 void init_array(int *array, int no_of_elements)
 {
     for (int i = 0; i < no_of_elements; i++)
-    {
         array[i] = 1;
-    }
 }
 
 void print_array(int *array, int no_of_elements)
 {
     for (int i = 0; i < no_of_elements; i++)
-    {
-        printf("%d", array[i]);
-    }
+        printf("%d ", array[i]);
 }
 
 void generate_array(int *array_to_gen, int n_gen_ele, int *prev_array)
@@ -41,6 +37,10 @@ int main(void)
 
     for (int i = 0; i < no_of_lines; i++)
     {
+        // add spaces
+        for (int j = 0; j < (no_of_lines - i); j++)
+            printf(" ");
+
         if (i % 2 == 0) // even i, but odd row
         {
             // realloc odd array
