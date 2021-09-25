@@ -1,6 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void init_array(int *array, int no_of_elements)
+{
+    for (int i = 0; i < no_of_elements; i++)
+    {
+        array[i] = 1;
+    }
+}
+
+void print_array(int *array, int no_of_elements)
+{
+    for (int i = 0; i < no_of_elements; i++)
+    {
+        printf("%d", array[i]);
+    }
+}
+
 int main(void)
 {
     int no_of_lines = 0;
@@ -19,16 +35,10 @@ int main(void)
 
             // business logic
             // init array for demo
-            for (int k = 0; k < (i + 1); k++)
-            {
-                odd_array[k] = 1;
-            }
+            init_array(odd_array, (i + 1));
 
             // print array
-            for (int j = 0; j < i + 1; j++)
-            {
-                printf("%d", odd_array[j]);
-            }
+            print_array(odd_array, (i + 1));
         }
         else // odd i, but even row
         {
@@ -37,16 +47,10 @@ int main(void)
 
             // business logic
             // init array for demo
-            for (int k = 0; k < (i + 1); k++)
-            {
-                even_array[k] = 1;
-            }
+            init_array(even_array, (i + 1));
 
             // print array
-            for (int j = 0; j < i + 1; j++)
-            {
-                printf("%d", even_array[j]);
-            }
+            print_array(even_array, (i + 1));
         }
         printf("\n");
     }
